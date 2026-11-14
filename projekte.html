@@ -21,22 +21,40 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/navigation.css">
-<link rel="stylesheet" href="assets/projects.css"><link rel="stylesheet" href="assets/ive-previews.css"><link rel="stylesheet" href="assets/lu-worte.css"><link rel="stylesheet" href="assets/lu-knopf.css"><link rel="stylesheet" href="assets/lu-details.css">
+<link rel="stylesheet" href="assets/navigation.css?v=20261114">
+<link rel="stylesheet" href="assets/page-film.css?v=20261114">
+<link rel="stylesheet" href="assets/projects.css?v=20261114"><link rel="stylesheet" href="assets/ive-previews.css"><link rel="stylesheet" href="assets/lu-worte.css"><link rel="stylesheet" href="assets/lu-knopf.css"><link rel="stylesheet" href="assets/lu-details.css">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="projects-page">
+<body class="projects-page film-page">
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <header class="global-header">
  <div class="global-header-inner">
   <a class="global-brand" href="index.html" aria-label="AIFOREU – Startseite"><img src="assets/aiforeu-mark.svg" alt="" width="30" height="20"><span>AIFOREU</span></a>
   <nav class="global-navigation" aria-label="Hauptnavigation">
-   <a href="verkehrsai.html">VerkehrsAI</a>
-   <a href="autonomous-workforce.html">Autonomous Workforce</a>
+   <details class="global-offers" data-current>
+    <summary>Angebote <svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="global-offers-panel"><div class="global-offers-inner">
+     <div class="global-offers-group"><p>Für Unternehmen</p>
+      <a href="autonomous-workforce.html"><strong>Autonomous Workforce</strong><span>Agenten, die ganze Aufgabenbereiche übernehmen</span></a>
+      <a href="agentario/"><strong>Die Plattform</strong><span>Voice-Agenten, Desktop-Automatisierung und Workflows</span></a>
+      <a href="workflows.html"><strong>Workflows</strong><span>Aufgaben, Entscheidungen und Freigaben</span></a>
+      <a href="automatisierungen.html"><strong>Automatisierung mit uns</strong><span>Wir richten Abläufe mit Ihrem Team ein</span></a>
+     </div>
+     <div class="global-offers-group"><p>Für Kommunen und Planungsbüros</p>
+      <a href="verkehrsai.html"><strong>VerkehrsAI</strong><span>KI für Planung und Verkehr</span></a>
+      <a href="verkehrsos.html"><strong>VerkehrsOS</strong><span>Forschungsprojekt zu Kreuzungsplänen</span></a>
+     </div>
+     <div class="global-offers-group"><p>Open Source</p>
+      <a href="ive.html"><strong>IVE</strong><span>Ein Arbeitsplatz für Ihre Coding-Agenten</span></a>
+      <a href="anyuse.html"><strong>AnyUse</strong><span>Aus wiederkehrender Arbeit werden Vorschläge</span></a>
+     </div>
+     <a class="global-offers-all" href="projekte.html" aria-current="page">Alle Projekte im Überblick <span aria-hidden="true">↗</span></a>
+    </div></div>
+   </details>
    <a href="unternehmen.html">Unternehmen</a>
    <a href="blog.html">Blog</a>
-   <div class="global-products-fallback"><a href="anyuse.html">AnyUse</a><a href="ive.html">IVE</a><a href="verkehrsos.html">VerkehrsOS</a></div>
   </nav>
   <a class="global-contact" href="kontakt.html">Kontakt <svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <button class="global-menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="global-menu" aria-haspopup="dialog"><span class="global-menu-lines" aria-hidden="true"><span></span><span></span></span></button>
@@ -56,22 +74,29 @@
    <a href="blog.html">Blog <span aria-hidden="true">↗</span></a>
    <a href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
   </nav>
-  <nav class="global-menu-products" aria-label="Weitere Projekte">
-   <p class="global-menu-label">Produkte &amp; Projekte</p>
-   <a href="agentario/">Agentario <span aria-hidden="true">↗</span></a>
-   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
-   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+  <nav class="global-menu-products" aria-label="Alle Angebote">
+   <p class="global-menu-label">Alle Angebote</p>
+   <a href="agentario/">Die Plattform <span aria-hidden="true">↗</span></a>
+   <a href="workflows.html">Workflows <span aria-hidden="true">↗</span></a>
+   <a href="automatisierungen.html">Automatisierung <span aria-hidden="true">↗</span></a>
    <a href="verkehrsos.html">VerkehrsOS <span aria-hidden="true">↗</span></a>
+   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
+   <a href="projekte.html" aria-current="page">Alle Projekte <span aria-hidden="true">↗</span></a>
   </nav>
   <div class="global-menu-bottom"><a href="mailto:contact@aiforgov.eu">contact@aiforgov.eu</a><span>Osnabrück &amp; Berlin</span></div>
  </div>
 </dialog>
 <main id="inhalt" tabindex="-1">
 
-<section class="projects-intro projects-width" aria-labelledby="projects-title">
- <div class="projects-intro-heading"><h1 id="projects-title">Eigene Produkte.<br>Klare Aufgaben.</h1><p>Agentario ist unsere Plattform für die AI Workforce im Unternehmen. Daneben entwickeln wir eigenständige Werkzeuge für Automatisierung, Softwareentwicklung und Verkehrsplanung.</p></div>
- <nav class="projects-index" aria-label="Projekte auf dieser Seite"><a href="#agentario">Agentario <span>Hauptprodukt</span></a><a href="#anyuse">AnyUse</a><a href="#ive">IVE</a><a href="#verkehrsos">VerkehrsOS</a></nav>
+<section class="film-hero film-hero--row" aria-labelledby="projects-title" data-film-hero>
+ <div class="film-hero-media"><img src="assets/aiforeu-home/scene-row.jpg?v=20261114" alt="Fünf weiße Tische in einer Reihe im dunklen Raum, jeder in seinem eigenen Lichtkegel." width="1920" height="1080" fetchpriority="high" decoding="async"><video data-film-clip data-src="assets/aiforeu-home/scene-row.mp4?v=20261114" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div>
+ <div class="film-hero-copy">
+  <h1 id="projects-title">Eigene Produkte.<br>Klare Aufgaben.</h1>
+  <p class="film-hero-lead">Agentario ist unsere Plattform für die AI Workforce im Unternehmen. Daneben entwickeln wir eigenständige Werkzeuge für Automatisierung, Softwareentwicklung und Verkehrsplanung.</p>
+ </div>
 </section>
+<nav class="film-index" aria-label="Projekte auf dieser Seite"><a href="#agentario">Agentario <span>Hauptprodukt</span></a><a href="#anyuse">AnyUse</a><a href="#ive">IVE</a><a href="#verkehrsos">VerkehrsOS</a></nav>
 
 <section class="projects-flagship" id="agentario" aria-labelledby="projects-agentario-title">
  <div class="projects-width">
@@ -80,9 +105,9 @@
   <div class="projects-platform" aria-label="Drei Bereiche innerhalb der Agentario-Plattform">
    <div class="projects-platform-label"><span>Agentario</span><span>Eine gemeinsame Plattform</span></div>
    <div class="projects-platform-areas">
-    <div class="projects-platform-area"><div class="projects-platform-art" aria-hidden="true"><svg viewBox="0 0 280 72" fill="none"><path d="M0 36h44m192 0h44M58 29v14m14-24v34m14-27v20m14-34v48m14-38v28m14-46v64m14-54v44m14-34v24m14-38v52m14-40v28m14-22v16m14-24v32m14-21v10"/></svg></div><h3>Voice</h3><p>Gespräche führen, Anliegen einordnen und mit Kontext an Ihr Team übergeben.</p></div>
-    <div class="projects-platform-area"><div class="projects-platform-art" aria-hidden="true"><svg viewBox="0 0 280 72" fill="none"><rect x="48" y="4" width="184" height="64" rx="5"/><path d="M48 22h184m-168-9h1m8 0h1m8 0h1m-18 22h68m-68 12h48m-48 12h56"/><rect x="158" y="34" width="55" height="21" rx="3"/><path d="m194 45 2 24 7-8 10 2Z"/></svg></div><h3>Desktop</h3><p>Bestehende Programme bedienen, wenn eine passende Schnittstelle fehlt.</p></div>
-    <div class="projects-platform-area"><div class="projects-platform-art" aria-hidden="true"><svg viewBox="0 0 280 72" fill="none"><rect x="13" y="23" width="54" height="30" rx="5"/><rect x="113" y="23" width="54" height="30" rx="5"/><rect x="213" y="23" width="54" height="30" rx="5"/><path d="M67 38h46m54 0h46M140 23V5h100m-209 33 5 5 10-10m85 5 5 5 10-10m94 0v10m-5-5h10"/></svg></div><h3>Workflows</h3><p>Agenten, Software und menschliche Freigaben zu einem Ablauf verbinden.</p></div>
+    <div class="projects-platform-area"><div class="projects-platform-art projects-platform-photo"><img src="assets/aiforeu-home/scene-voice.jpg?v=20261114" alt="Ein weißer Tisch im dunklen Raum mit Mikrofon, Notizbuch, Kopfhörer und Telefon." width="1600" height="1200" loading="lazy" decoding="async"></div><h3>Voice</h3><p>Gespräche führen, Anliegen einordnen und mit Kontext an Ihr Team übergeben.</p></div>
+    <div class="projects-platform-area"><div class="projects-platform-art projects-platform-photo"><img src="assets/aiforeu-home/scene-desktop.jpg?v=20261114" alt="Ein weißer Tisch im dunklen Raum mit Bildschirm, Tastatur, Maus und Tasse." width="1600" height="1200" loading="lazy" decoding="async"></div><h3>Desktop</h3><p>Bestehende Programme bedienen, wenn eine passende Schnittstelle fehlt.</p></div>
+    <div class="projects-platform-area"><div class="projects-platform-art projects-platform-photo"><img src="assets/aiforeu-home/scene-workflows.jpg?v=20261114" alt="Ein weißer Tisch im dunklen Raum mit drei farbigen Papierstapeln und einer Ablage." width="1600" height="1200" loading="lazy" decoding="async"></div><h3>Workflows</h3><p>Agenten, Software und menschliche Freigaben zu einem Ablauf verbinden.</p></div>
    </div>
    <p class="projects-platform-foundation">Ihr Team gestaltet die Zusammenarbeit.<span>Aufgaben · Übergaben · Freigaben</span></p>
   </div>
@@ -90,20 +115,20 @@
 </section>
 
 <section class="projects-independent projects-width" aria-labelledby="projects-independent-title">
- <div class="projects-independent-heading"><h2 id="projects-independent-title">Für eine bestimmte Aufgabe gebaut.</h2><p>AnyUse, IVE und VerkehrsOS sind eigenständige Projekte mit jeweils einem eigenen Schwerpunkt.</p></div>
+ <div class="projects-independent-heading"><h2 id="projects-independent-title">Für eine bestimmte Aufgabe gebaut.</h2><p>AnyUse, IVE und VerkehrsOS sind eigenständige Projekte mit jeweils einem eigenen Schwerpunkt. Zusammen ergeben sie einen Weg: herausfinden, was sich automatisieren lässt, es bauen, es einsetzen.</p></div>
 
  <article class="projects-entry projects-anyuse" id="anyuse" aria-labelledby="projects-anyuse-title">
-  <div class="projects-entry-copy"><h3 id="projects-anyuse-title">AnyUse</h3><p class="projects-entry-lead">Aus wiederkehrender Arbeit<br>werden konkrete Vorschläge.</p><p>AnyUse kann erfassen, wie Mitarbeitende eine Aufgabe erledigen, und daraus eigenständig Vorschläge für Automatisierungen ableiten. Welche davon umgesetzt werden, prüfen wir gemeinsam.</p><a class="projects-link" href="anyuse.html">AnyUse kennenlernen <span aria-hidden="true">↗</span></a></div>
+  <div class="projects-entry-copy"><h3 id="projects-anyuse-title">AnyUse</h3><p class="projects-entry-lead">Aus wiederkehrender Arbeit<br>werden konkrete Vorschläge.</p><p>AnyUse kann erfassen, wie Mitarbeitende eine Aufgabe erledigen, und daraus eigenständig Vorschläge für Automatisierungen ableiten. Welche davon umgesetzt werden, prüfen wir gemeinsam.</p><p class="projects-entry-relation"><strong>Im Zusammenspiel</strong> AnyUse macht bestehende Arbeitsabläufe für Automatisierung nutzbar. Aufgebaut und gesteuert werden sie in unserer Plattform.</p><a class="projects-link" href="anyuse.html">AnyUse kennenlernen <span aria-hidden="true">↗</span></a></div>
   <div class="projects-anyuse-process"><p class="projects-process-label">Von der Arbeit zur Idee für eine Automatisierung</p><ol><li><div><h4>Arbeitsschritte erfassen</h4><p>Wie wird eine Aufgabe heute erledigt?</p></div></li><li><div><h4>Vorschläge ableiten</h4><p>Welche wiederkehrenden Schritte lassen sich automatisieren?</p></div></li><li><div><h4>Gemeinsam prüfen</h4><p>Was passt zur Aufgabe und zum Unternehmen?</p></div></li></ol><p class="projects-process-note">Ein Vorschlag ist der Ausgangspunkt für die gemeinsame Prüfung.</p></div>
  </article>
 
  <article class="projects-entry projects-ive" id="ive" aria-labelledby="projects-ive-title">
-  <div class="projects-entry-copy"><h3 id="projects-ive-title">IVE</h3><p class="projects-entry-lead">Mehrere Coding-Agenten.<br>Ein klarer Überblick.</p><p>IVE bringt die Arbeit mit Claude Code, Codex und Gemini in einen gemeinsamen Entwicklerarbeitsplatz. Aufgaben parallel bearbeiten, wartende Agenten erkennen und Änderungen prüfen – lokal auf dem Mac.</p><a class="projects-link" href="ive.html">IVE entdecken <span aria-hidden="true">↗</span></a></div>
+  <div class="projects-entry-copy"><h3 id="projects-ive-title">IVE</h3><p class="projects-entry-lead">Mehrere Coding-Agenten.<br>Ein klarer Überblick.</p><p>IVE bringt die Arbeit mit Claude Code, Codex und Gemini in einen gemeinsamen Entwicklerarbeitsplatz. Aufgaben parallel bearbeiten, wartende Agenten erkennen und Änderungen prüfen – lokal auf dem Mac.</p><p class="projects-entry-relation"><strong>Im Zusammenspiel</strong> Damit bauen wir selbst. Agenten-Systeme der Plattform lassen sich aus IVE anlegen, bearbeiten und testen, eigene Programme als Werkzeuge anbinden.</p><a class="projects-link" href="ive.html">IVE entdecken <span aria-hidden="true">↗</span></a></div>
   <figure class="projects-ive-figure"><div class="projects-ive-image" data-ive-preview="terminals" data-ive-theme="dark"><img src="assets/ive/terminals-dark.webp" alt="Das IVE-Board mit mehreren parallelen Coding-Sitzungen und einer hervorgehobenen Aufgabe, die auf eine Antwort wartet." width="1600" height="762" loading="lazy" decoding="async"></div><figcaption>Das Board in IVE · Animierte Vorschau mit Beispieldaten</figcaption></figure>
  </article>
 
  <article class="projects-entry projects-traffic" id="verkehrsos" aria-labelledby="projects-traffic-title">
-  <div class="projects-entry-copy"><h3 id="projects-traffic-title">VerkehrsOS</h3><p class="projects-entry-lead">Kreuzungen verstehen.<br>Fundiert weiterplanen.</p><p>VerkehrsOS richtet sich an Kommunen und Planungsbüros. Lage- und Signalpläne werden zur Grundlage, um Fahrstreifen, Verkehrsbeziehungen und Querungen in einem nachvollziehbaren Modell zu bearbeiten.</p><p class="projects-entry-status">Pilotfähiger Prototyp</p><a class="projects-link" href="verkehrsos.html">VerkehrsOS kennenlernen <span aria-hidden="true">↗</span></a></div>
+  <div class="projects-entry-copy"><h3 id="projects-traffic-title">VerkehrsOS</h3><p class="projects-entry-lead">Kreuzungen verstehen.<br>Fundiert weiterplanen.</p><p>VerkehrsOS richtet sich an Kommunen und Planungsbüros. Lage- und Signalpläne werden zur Grundlage, um Fahrstreifen, Verkehrsbeziehungen und Querungen in einem nachvollziehbaren Modell zu bearbeiten.</p><p class="projects-entry-relation"><strong>Im Zusammenspiel</strong> VerkehrsOS nutzt dieselbe Plattform wie Voice, Desktop und Workflows.</p><p class="projects-entry-status">Pilotfähiger Prototyp</p><a class="projects-link" href="verkehrsos.html">VerkehrsOS kennenlernen <span aria-hidden="true">↗</span></a></div>
   <figure class="projects-traffic-figure"><img src="assets/hf/cx-kreuzung-1.jpg" alt="Gestaltete Draufsicht auf eine innerstädtische Kreuzung mit Fahrstreifen, Fußgängerüberwegen und Lichtsignalanlagen." width="1800" height="1200" loading="lazy" decoding="async"><figcaption>Gestaltete Straßenszene</figcaption></figure>
  </article>
 </section>
@@ -120,7 +145,8 @@
  </div>
  <div class="wrap footer-bottom"><span>© 2026 AIFOREU GmbH</span><div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#inhalt">Nach oben ↑</a></div></div>
 </footer>
-<script src="assets/navigation.js"></script>
+<script src="assets/navigation.js?v=20261114"></script>
 <script src="assets/ive-previews.js"></script><script src="assets/lu-worte.js"></script><script src="assets/lu-knopf.js"></script><script src="assets/lu-details.js"></script>
+<script src="assets/page-film.js?v=20261114" defer></script>
 </body>
 </html>

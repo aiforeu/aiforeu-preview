@@ -140,3 +140,14 @@
  .projects-page main :is(a,a>span){transition:none}
  .projects-link:hover>span{transform:none}
 }
+
+/* The three areas of the platform show the same workplaces as the homepage: white desks filmed in darkness.
+   Lighten lets the black of each picture dissolve into the panel. */
+.projects-platform-photo{max-width:none;height:auto;aspect-ratio:4/3;margin:-22px -18px 6px;overflow:hidden;mix-blend-mode:lighten;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent),linear-gradient(transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent),linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
+.projects-platform-photo img{display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 54%;transform:scale(1.24)}
+@media(max-width:760px){.projects-platform-area{grid-template-columns:minmax(0,1fr) 124px}.projects-platform-photo{width:124px;height:auto;aspect-ratio:4/3;margin:0}}
+@media(max-width:390px){.projects-platform-area{grid-template-columns:1fr}.projects-platform-photo{display:none}}
+/* One line per project on how it belongs to the others. */
+.projects-entry-relation{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;line-height:1.55;color:#4B5565}
+.projects-entry-relation strong{display:block;margin-bottom:3px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#1F2937}
+.projects-entry-relation+.projects-link,.projects-entry-relation+.projects-entry-status{margin-top:18px}

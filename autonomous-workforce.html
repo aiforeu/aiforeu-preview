@@ -21,22 +21,40 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/navigation.css">
+<link rel="stylesheet" href="assets/navigation.css?v=20261114">
+<link rel="stylesheet" href="assets/page-film.css?v=20261114">
 <link rel="stylesheet" href="assets/business-paths.css"><link rel="stylesheet" href="assets/integrations.css"><link rel="stylesheet" href="assets/lu-worte.css"><link rel="stylesheet" href="assets/lu-spielfeld.css"><link rel="stylesheet" href="assets/lu-spielfeld-stable.css"><link rel="stylesheet" href="assets/lu-knopf.css"><link rel="stylesheet" href="assets/lu-details.css">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="business-path path-workforce">
+<body class="business-path path-workforce film-page">
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <header class="global-header">
  <div class="global-header-inner">
   <a class="global-brand" href="index.html" aria-label="AIFOREU – Startseite"><img src="assets/aiforeu-mark.svg" alt="" width="30" height="20"><span>AIFOREU</span></a>
   <nav class="global-navigation" aria-label="Hauptnavigation">
-   <a href="verkehrsai.html">VerkehrsAI</a>
-   <a href="autonomous-workforce.html" aria-current="page">Autonomous Workforce</a>
+   <details class="global-offers" data-current>
+    <summary>Angebote <svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="global-offers-panel"><div class="global-offers-inner">
+     <div class="global-offers-group"><p>Für Unternehmen</p>
+      <a href="autonomous-workforce.html" aria-current="page"><strong>Autonomous Workforce</strong><span>Agenten, die ganze Aufgabenbereiche übernehmen</span></a>
+      <a href="agentario/"><strong>Die Plattform</strong><span>Voice-Agenten, Desktop-Automatisierung und Workflows</span></a>
+      <a href="workflows.html"><strong>Workflows</strong><span>Aufgaben, Entscheidungen und Freigaben</span></a>
+      <a href="automatisierungen.html"><strong>Automatisierung mit uns</strong><span>Wir richten Abläufe mit Ihrem Team ein</span></a>
+     </div>
+     <div class="global-offers-group"><p>Für Kommunen und Planungsbüros</p>
+      <a href="verkehrsai.html"><strong>VerkehrsAI</strong><span>KI für Planung und Verkehr</span></a>
+      <a href="verkehrsos.html"><strong>VerkehrsOS</strong><span>Forschungsprojekt zu Kreuzungsplänen</span></a>
+     </div>
+     <div class="global-offers-group"><p>Open Source</p>
+      <a href="ive.html"><strong>IVE</strong><span>Ein Arbeitsplatz für Ihre Coding-Agenten</span></a>
+      <a href="anyuse.html"><strong>AnyUse</strong><span>Aus wiederkehrender Arbeit werden Vorschläge</span></a>
+     </div>
+     <a class="global-offers-all" href="projekte.html">Alle Projekte im Überblick <span aria-hidden="true">↗</span></a>
+    </div></div>
+   </details>
    <a href="unternehmen.html">Unternehmen</a>
    <a href="blog.html">Blog</a>
-   <div class="global-products-fallback"><a href="anyuse.html">AnyUse</a><a href="ive.html">IVE</a><a href="verkehrsos.html">VerkehrsOS</a></div>
   </nav>
   <a class="global-contact" href="kontakt.html">Kontakt <svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <button class="global-menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="global-menu" aria-haspopup="dialog"><span class="global-menu-lines" aria-hidden="true"><span></span><span></span></span></button>
@@ -56,21 +74,28 @@
    <a href="blog.html">Blog <span aria-hidden="true">↗</span></a>
    <a href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
   </nav>
-  <nav class="global-menu-products" aria-label="Weitere Projekte">
-   <p class="global-menu-label">Produkte &amp; Projekte</p>
-   <a href="agentario/">Agentario <span aria-hidden="true">↗</span></a>
-   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
-   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+  <nav class="global-menu-products" aria-label="Alle Angebote">
+   <p class="global-menu-label">Alle Angebote</p>
+   <a href="agentario/">Die Plattform <span aria-hidden="true">↗</span></a>
+   <a href="workflows.html">Workflows <span aria-hidden="true">↗</span></a>
+   <a href="automatisierungen.html">Automatisierung <span aria-hidden="true">↗</span></a>
    <a href="verkehrsos.html">VerkehrsOS <span aria-hidden="true">↗</span></a>
+   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
+   <a href="projekte.html">Alle Projekte <span aria-hidden="true">↗</span></a>
   </nav>
   <div class="global-menu-bottom"><a href="mailto:contact@aiforgov.eu">contact@aiforgov.eu</a><span>Osnabrück &amp; Berlin</span></div>
  </div>
 </dialog>
 <main id="inhalt" tabindex="-1">
-<section class="bp-workforce-hero bp-width" aria-labelledby="workforce-title">
- <a class="bp-back" href="index.html"><span aria-hidden="true">←</span> AIFOREU</a>
- <h1 id="workforce-title">Eine Workforce.<br> Für Ihr Unternehmen.</h1>
- <div class="bp-workforce-intro"><p>Agenten, die ganze Aufgabenbereiche übernehmen können – im Kundenkontakt, in Operations und in der Administration. Zusammen mit Ihrem Team, verbunden mit den Systemen, in denen Sie bereits arbeiten.</p><div class="bp-actions"><a class="bp-button" href="/aiforeu-preview/agentario/">Agentario entdecken <span aria-hidden="true">→</span></a><a class="bp-link" href="#workforce-plattform">Den Bereich kennenlernen <span aria-hidden="true">↓</span></a></div></div>
+<section class="film-hero" aria-labelledby="workforce-title" data-film-hero>
+ <div class="film-hero-media"><img src="assets/aiforeu-home/scene-three.jpg?v=20261114" alt="Drei weiße Tische hintereinander im dunklen Raum: einer mit Mikrofon und Telefon, einer mit Bildschirm, einer mit farbigen Papierstapeln." width="1600" height="1200" fetchpriority="high" decoding="async"><video data-film-clip data-src="assets/aiforeu-home/scene-three.mp4?v=20261114" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div>
+ <div class="film-hero-copy">
+  <a class="film-hero-back" href="index.html"><span aria-hidden="true">←</span> AIFOREU</a>
+  <h1 id="workforce-title">Eine Workforce.<br>Für Ihr Unternehmen.</h1>
+  <p class="film-hero-lead">Agenten, die ganze Aufgabenbereiche übernehmen können – im Kundenkontakt, in Operations und in der Administration. Zusammen mit Ihrem Team, verbunden mit den Systemen, in denen Sie bereits arbeiten.</p>
+  <div class="film-hero-actions"><a class="film-hero-button" href="/aiforeu-preview/agentario/">Agentario entdecken <span aria-hidden="true">→</span></a><a class="film-hero-link" href="#workforce-plattform">Den Bereich kennenlernen <span aria-hidden="true">↓</span></a></div>
+ </div>
 </section>
 
 <section class="lu-spielfeld bp-width" data-lu-spielfeld aria-label="Notizzettel aus dem Arbeitsalltag">
@@ -152,7 +177,8 @@
  </div>
  <div class="wrap footer-bottom"><span>© 2026 AIFOREU GmbH</span><div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#inhalt">Nach oben ↑</a></div></div>
 </footer>
-<script src="assets/navigation.js"></script>
+<script src="assets/navigation.js?v=20261114"></script>
 <script src="assets/lu-worte.js"></script><script src="assets/lu-spielfeld-stable.js"></script><script src="assets/lu-knopf.js"></script><script src="assets/lu-details.js"></script>
+<script src="assets/page-film.js?v=20261114" defer></script>
 </body>
 </html>

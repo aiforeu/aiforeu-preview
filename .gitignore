@@ -1,0 +1,4 @@
+.higgsfield-local/
+__pycache__/
+review/
+.DS_Store

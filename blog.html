@@ -22,22 +22,40 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/navigation.css">
+<link rel="stylesheet" href="assets/navigation.css?v=20261114">
+<link rel="stylesheet" href="assets/page-film.css?v=20261114">
 <link rel="stylesheet" href="assets/blog.css">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="blog-page">
+<body class="blog-page film-page">
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 <header class="global-header">
  <div class="global-header-inner">
   <a class="global-brand" href="index.html" aria-label="AIFOREU – Startseite"><img src="assets/aiforeu-mark.svg" alt="" width="30" height="20"><span>AIFOREU</span></a>
   <nav class="global-navigation" aria-label="Hauptnavigation">
-   <a href="verkehrsai.html">VerkehrsAI</a>
-   <a href="autonomous-workforce.html">Autonomous Workforce</a>
+   <details class="global-offers">
+    <summary>Angebote <svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="global-offers-panel"><div class="global-offers-inner">
+     <div class="global-offers-group"><p>Für Unternehmen</p>
+      <a href="autonomous-workforce.html"><strong>Autonomous Workforce</strong><span>Agenten, die ganze Aufgabenbereiche übernehmen</span></a>
+      <a href="agentario/"><strong>Die Plattform</strong><span>Voice-Agenten, Desktop-Automatisierung und Workflows</span></a>
+      <a href="workflows.html"><strong>Workflows</strong><span>Aufgaben, Entscheidungen und Freigaben</span></a>
+      <a href="automatisierungen.html"><strong>Automatisierung mit uns</strong><span>Wir richten Abläufe mit Ihrem Team ein</span></a>
+     </div>
+     <div class="global-offers-group"><p>Für Kommunen und Planungsbüros</p>
+      <a href="verkehrsai.html"><strong>VerkehrsAI</strong><span>KI für Planung und Verkehr</span></a>
+      <a href="verkehrsos.html"><strong>VerkehrsOS</strong><span>Forschungsprojekt zu Kreuzungsplänen</span></a>
+     </div>
+     <div class="global-offers-group"><p>Open Source</p>
+      <a href="ive.html"><strong>IVE</strong><span>Ein Arbeitsplatz für Ihre Coding-Agenten</span></a>
+      <a href="anyuse.html"><strong>AnyUse</strong><span>Aus wiederkehrender Arbeit werden Vorschläge</span></a>
+     </div>
+     <a class="global-offers-all" href="projekte.html">Alle Projekte im Überblick <span aria-hidden="true">↗</span></a>
+    </div></div>
+   </details>
    <a href="unternehmen.html">Unternehmen</a>
    <a href="blog.html" aria-current="page">Blog</a>
-   <div class="global-products-fallback"><a href="anyuse.html">AnyUse</a><a href="ive.html">IVE</a><a href="verkehrsos.html">VerkehrsOS</a></div>
   </nav>
   <a class="global-contact" href="kontakt.html">Kontakt <svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   <button class="global-menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="global-menu" aria-haspopup="dialog"><span class="global-menu-lines" aria-hidden="true"><span></span><span></span></span></button>
@@ -57,20 +75,26 @@
    <a href="blog.html" aria-current="page">Blog <span aria-hidden="true">↗</span></a>
    <a href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
   </nav>
-  <nav class="global-menu-products" aria-label="Weitere Projekte">
-   <p class="global-menu-label">Produkte &amp; Projekte</p>
-   <a href="agentario/">Agentario <span aria-hidden="true">↗</span></a>
-   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
-   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+  <nav class="global-menu-products" aria-label="Alle Angebote">
+   <p class="global-menu-label">Alle Angebote</p>
+   <a href="agentario/">Die Plattform <span aria-hidden="true">↗</span></a>
+   <a href="workflows.html">Workflows <span aria-hidden="true">↗</span></a>
+   <a href="automatisierungen.html">Automatisierung <span aria-hidden="true">↗</span></a>
    <a href="verkehrsos.html">VerkehrsOS <span aria-hidden="true">↗</span></a>
+   <a href="ive.html">IVE <span aria-hidden="true">↗</span></a>
+   <a href="anyuse.html">AnyUse <span aria-hidden="true">↗</span></a>
+   <a href="projekte.html">Alle Projekte <span aria-hidden="true">↗</span></a>
   </nav>
   <div class="global-menu-bottom"><a href="mailto:contact@aiforgov.eu">contact@aiforgov.eu</a><span>Osnabrück &amp; Berlin</span></div>
  </div>
 </dialog>
 <main id="inhalt" tabindex="-1">
-<section class="blog-uebersicht-kopf blog-breite" aria-labelledby="blog-titel">
- <h1 id="blog-titel">Was wir bauen.<br>Und was wir dabei lernen.</h1>
- <p>Einblicke aus der Arbeit von AIFOREU: wie Unternehmen wiederkehrende Arbeit abgeben, was die EU-KI-Verordnung verlangt und wer hinter uns steht.</p>
+<section class="film-hero" aria-labelledby="blog-titel" data-film-hero>
+ <div class="film-hero-media"><img src="assets/aiforeu-home/scene-notes.jpg?v=20261114" alt="Ein weißer Tisch im dunklen Raum mit einem aufgeschlagenen Notizbuch, einem Stift, drei Büchern und einer Tasse." width="1600" height="1200" fetchpriority="high" decoding="async"></div>
+ <div class="film-hero-copy">
+  <h1 id="blog-titel">Was wir bauen.<br>Und was wir dabei lernen.</h1>
+  <p class="film-hero-lead">Einblicke aus der Arbeit von AIFOREU: wie Unternehmen wiederkehrende Arbeit abgeben, was die EU-KI-Verordnung verlangt und wer hinter uns steht.</p>
+ </div>
 </section>
 <section class="blog-breite blog-uebersicht" aria-label="Alle Artikel">
 <ol class="blog-liste"><li class="blog-eintrag blog-eintrag--erst"><a href="blog-eu-kofinanzierung.html"><span class="blog-eintrag-meta"><span>Unternehmen</span><time datetime="2026-11-12">12. November 2026</time><span>7 Min. Lesezeit</span></span><strong>Was heißt kofinanziert von der Europäischen Union?</strong><span class="blog-eintrag-kurz">Was der EU-Hinweis „Europa für Niedersachsen“ bei AIFOREU bedeutet, was eine Kofinanzierung nicht ist und wer hinter der AIFOREU GmbH steht.</span><b aria-hidden="true">↗</b></a></li><li class="blog-eintrag"><a href="blog-agentario-plattform.html"><span class="blog-eintrag-meta"><span>Agentario</span><time datetime="2026-11-12">12. November 2026</time><span>7 Min. Lesezeit</span></span><strong>Agentario: KI-Agenten-Plattform für Unternehmen</strong><span class="blog-eintrag-kurz">Voice, Desktop-Automatisierung und Workflows in einer Plattform: was Agentario übernimmt, wie die Teile zusammenspielen und wie ein Einstieg aussieht.</span><b aria-hidden="true">↗</b></a></li><li class="blog-eintrag"><a href="blog-ki-telefonassistent.html"><span class="blog-eintrag-meta"><span>Telefonassistenz</span><time datetime="2026-11-12">12. November 2026</time><span>7 Min. Lesezeit</span></span><strong>KI-Telefonassistent im Unternehmen einsetzen</strong><span class="blog-eintrag-kurz">Was AIFOREU Voice am Telefon selbst erledigt, wie Übergaben an Ihr Team aussehen und was DSGVO-Unterlagen und KI-Verordnung für Ihre Ansage bedeuten.</span><b aria-hidden="true">↗</b></a></li><li class="blog-eintrag"><a href="blog-ki-verordnung-unternehmen.html"><span class="blog-eintrag-meta"><span>KI-Verordnung</span><time datetime="2026-11-12">12. November 2026</time><span>7 Min. Lesezeit</span></span><strong>KI-Verordnung (AI Act): Pflichten für Unternehmen</strong><span class="blog-eintrag-kurz">Fristen, Risikostufen, KI-Kompetenz und der KI-Hinweis bei Chatbots: was der AI Act für Unternehmen bedeutet, die KI-Agenten im Büro einsetzen wollen.</span><b aria-hidden="true">↗</b></a></li><li class="blog-eintrag"><a href="blog-repetitive-arbeit-automatisieren.html"><span class="blog-eintrag-meta"><span>Praxisleitfaden</span><time datetime="2026-11-12">12. November 2026</time><span>7 Min. Lesezeit</span></span><strong>Repetitive Arbeit automatisieren: So starten Sie</strong><span class="blog-eintrag-kurz">Woran Sie erkennen, welche wiederkehrende Büroarbeit sich automatisieren lässt, und wie Sie vom aufgenommenen Ablauf zum ersten Test mit dem Team kommen.</span><b aria-hidden="true">↗</b></a></li></ol>
@@ -90,7 +114,8 @@
  </div>
  <div class="wrap footer-bottom"><span>© 2026 AIFOREU GmbH</span><div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#inhalt">Nach oben ↑</a></div></div>
 </footer>
-<script src="assets/navigation.js"></script>
+<script src="assets/navigation.js?v=20261114"></script>
 
+<script src="assets/page-film.js?v=20261114" defer></script>
 </body>
 </html>

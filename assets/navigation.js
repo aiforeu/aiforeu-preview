@@ -3,6 +3,26 @@
   if (new URLSearchParams(location.search).get('review') === '1') document.body.classList.add('review-mode');
 
   const header = document.querySelector('.global-header');
+
+  // The offers panel is a native <details>. Here: one click elsewhere, Escape, or leaving it with the keyboard closes it.
+  const offers = header?.querySelector('.global-offers');
+  if (offers) {
+    const summary = offers.querySelector('summary');
+    const closeOffers = returnFocus => {
+      if (!offers.open) return;
+      offers.open = false;
+      if (returnFocus) summary.focus({ preventScroll: true });
+    };
+    document.addEventListener('click', event => { if (!offers.contains(event.target)) closeOffers(false); });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !offers.open) return;
+      event.preventDefault(); closeOffers(offers.contains(document.activeElement));
+    });
+    offers.addEventListener('focusout', event => { if (event.relatedTarget && !offers.contains(event.relatedTarget)) closeOffers(false); });
+    offers.addEventListener('toggle', () => header.toggleAttribute('data-offers-open', offers.open));
+    matchMedia('(max-width:1000px)').addEventListener('change', () => closeOffers(false));
+    window.addEventListener('pagehide', () => closeOffers(false));
+  }
   const toggle = header?.querySelector('.global-menu-toggle');
   const menu = document.querySelector('#global-menu');
   const closeButton = menu?.querySelector('.global-menu-close');

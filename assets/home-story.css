@@ -1,10 +1,8 @@
-/* AIFOREU homepage. A small opening film accompanies the company message;
-   the page then travels along the lit workplaces and closes with a direct contact question.
-   assets/home-story.js moves the row of workplaces sideways while the page scrolls; without it they simply follow one another. */
+/* AIFOREU homepage: a small opening film, a compact product overview and direct contact. */
 html:has(.landing-page){background:#0c0e11}
 .landing-page{--room:#0c0e11;--room-ink:#f8f9fa;--room-soft:#b8bec6;--room-quiet:#8b929c;--room-line:rgba(255,255,255,.16);background:var(--room);color:var(--room-ink)}
 .landing-page .global-header:not([data-hero-ended]){--global-nav-paper:#0c0e11;background:rgba(12,14,17,.8);border-bottom-color:rgba(255,255,255,.07);transition:background .4s ease,border-color .4s ease}
-/* Over the film and the workplaces the header has no bar of its own. */
+/* The opening film shares the page background. */
 .js .landing-page .global-header:not([data-hero-ended]):not([data-solid]){background:rgba(12,14,17,0);border-bottom-color:rgba(255,255,255,0);-webkit-backdrop-filter:none;backdrop-filter:none}
 /* The open offers panel always sits on a solid bar. */
 .js .landing-page .global-header:not([data-hero-ended])[data-offers-open]{background:rgba(12,14,17,.97);border-bottom-color:rgba(255,255,255,.07)}
@@ -44,78 +42,69 @@ html:has(.landing-page){background:#0c0e11}
 @keyframes night-rise{from{transform:translateY(112%)}}
 @keyframes night-settle{from{opacity:0;transform:translateY(12px)}}
 
-/* ---------- Five workplaces ---------- */
-.walk{position:relative;background:var(--room)}
-.walk-track{list-style:none;margin:0;padding:0}
-.walk-scene{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);align-items:center;gap:0 clamp(16px,3vw,48px);padding:clamp(28px,5vw,72px) max(var(--gutter),calc((100% - var(--content-width))/2 + var(--gutter)));background:var(--room)}
-/* Each film is a white desk in darkness. Lighten lets its black dissolve into the page, so the desk stands in the page itself. */
-.walk-film{position:relative;aspect-ratio:4/3;mix-blend-mode:lighten;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(transparent 2%,#000 17%,#000 91%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(transparent 2%,#000 17%,#000 91%,transparent);mask-composite:intersect}
-.walk-film :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.walk-film video{opacity:0;transition:opacity .8s ease}
-.walk-film video[data-playing]{opacity:1}
-/* One name and a short explanation per workplace. */
-.walk-caption h2{width:100%;max-width:100%;font:500 clamp(32px,4.3vw,66px)/1.03 var(--display);letter-spacing:-.052em;color:#fff;overflow-wrap:break-word;text-wrap:balance}
-.walk-text{max-width:32ch;margin-top:clamp(18px,2.8svh,28px);font:400 clamp(16px,1.25vw,18px)/1.6 var(--body);color:var(--room-soft)}
-.walk-link{display:inline-flex;align-items:center;gap:30px;min-height:44px;margin-top:clamp(20px,3svh,32px);border-bottom:1px solid rgba(255,255,255,.3);color:#f8f9fa;text-decoration:none;font:450 14px/1.4 var(--body)}
-.walk-link:hover{border-bottom-color:#fff}
-.walk-link span{font-size:20px}
-.walk-rail{display:none}
-
-/* With script and motion allowed: the stage stays, the row of desks travels sideways with the scroll. */
-.walk[data-walk-pinned]{height:calc(100vh + var(--walk-steps,4)*var(--walk-step));height:calc(100svh + var(--walk-steps,4)*var(--walk-step));--walk-step:105vh}
-.walk[data-walk-pinned] .walk-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;overflow:clip}
-.walk[data-walk-pinned] .walk-track{display:flex;height:100%;transform:translate3d(calc(var(--walk-p,0)*-100%),0,0);will-change:transform}
-.walk[data-walk-pinned] .walk-scene{flex:0 0 100%;display:flex;align-items:center;height:100%;padding-block:var(--global-header-height,73px) 96px}
-.walk[data-walk-pinned] .walk-caption{position:relative;z-index:2;width:min(40%,480px);opacity:var(--walk-read,1);transform:translate3d(calc(var(--walk-off,0)*11vw),0,0)}
-.walk[data-walk-pinned] .walk-film{position:absolute;z-index:1;top:calc(50% + 4px);right:max(-4vw,calc((100% - var(--content-width))/2 - 9vw));width:min(68vw,116vh,1180px);width:min(68vw,116svh,1180px);opacity:calc(var(--walk-light,1)*var(--walk-arrive,1));transform:translate3d(calc(var(--walk-off,0)*-6vw),-50%,0)}
-.walk[data-walk-pinned] .walk-scene[data-walk-away] .walk-caption{pointer-events:none}
-.walk[data-walk-pinned] .walk-scene[data-walk-dark] .walk-film{visibility:hidden}
-/* The rail is the walk itself: a line that fills from the first desk to the last. */
-.walk[data-walk-pinned] .walk-rail:not([hidden]){position:absolute;z-index:3;left:max(var(--gutter),calc((100% - var(--content-width))/2 + var(--gutter)));right:max(var(--gutter),calc((100% - var(--content-width))/2 + var(--gutter)));bottom:14px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));opacity:var(--walk-arrive,1)}
-.walk-rail::before,.walk-rail::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:var(--room-line)}
-.walk-rail::after{background:#fff;transform-origin:0 50%;transform:scaleX(var(--walk-progress,.2))}
-.walk-rail button{appearance:none;min-height:44px;padding:8px 0;border:0;background:none;color:var(--room-quiet);font:400 14px/1.3 var(--body);text-align:left;cursor:pointer;transition:color .2s}
-.walk-rail button:hover,.walk-rail button[aria-current]{color:#fff}
+/* ---------- Products: all destinations visible in the page ---------- */
+.products{padding-top:clamp(40px,6vw,88px)}
+.products-heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-bottom:30px;border-bottom:1px solid var(--room-line)}
+.products-heading h2{font:500 22px/1.3 var(--display);letter-spacing:-.025em}
+.products-heading>a,.product-text-link,.product-help>a{display:inline-flex;align-items:center;gap:18px;min-height:44px;color:var(--room-soft);font:400 14px/1.5 var(--body);text-decoration:none}
+.products a:hover{color:#fff}
+.products-heading>a:hover,.product-text-link:hover,.product-help>a:hover{text-decoration:underline;text-underline-offset:6px}
+.product-platform{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(48px,8vw,128px);padding-block:44px 48px}
+.product-audience{color:var(--room-quiet);font:400 13px/1.5 var(--body)}
+.product-intro h3{margin-top:14px;font:500 clamp(36px,3.5vw,50px)/1.1 var(--display);letter-spacing:-.045em}
+.product-intro h3 a,.product-traffic h3 a{display:inline-flex;align-items:baseline;gap:24px;text-decoration:none}
+.product-intro h3 span,.product-traffic h3 span{font:400 .65em/1 var(--body);color:var(--room-quiet);transition:transform .2s,color .2s}
+.product-intro h3 a:hover span,.product-traffic h3 a:hover span{color:#fff;transform:translate(2px,-2px)}
+.product-intro>p:not(.product-audience){max-width:29ch;margin-top:20px;font:400 18px/1.6 var(--body);color:var(--room-soft)}
+.product-intro>.product-text-link{margin-top:26px}
+.product-functions{list-style:none;margin:0;padding:0}
+.product-functions li{scroll-margin-top:calc(var(--global-header-height,73px) + 24px)}
+.product-functions li+li{border-top:1px solid var(--room-line)}
+.product-functions a{display:grid;grid-template-columns:minmax(0,1fr) 24px;align-items:center;gap:24px;padding-block:22px;color:var(--room-ink);text-decoration:none}
+.product-functions li:first-child a{padding-top:0}
+.product-functions li:last-child a{padding-bottom:0}
+.product-functions strong{display:block;font:500 24px/1.25 var(--display);letter-spacing:-.03em}
+.product-functions strong+span{display:block;max-width:40ch;margin-top:8px;color:var(--room-soft);font:400 15px/1.6 var(--body)}
+.product-arrow{font:400 25px/1 var(--body);color:var(--room-quiet);transition:transform .2s,color .2s}
+.product-functions a:hover .product-arrow{color:#fff;transform:translate(3px,-3px)}
+.product-functions a:hover strong{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.product-others{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(48px,8vw,128px);padding-block:38px 40px;border-top:1px solid var(--room-line)}
+.product-traffic h3{margin-top:14px;font:500 32px/1.2 var(--display);letter-spacing:-.035em}
+.product-traffic>p:not(.product-audience){max-width:38ch;margin-top:16px;font:400 15px/1.6 var(--body);color:var(--room-soft)}
+.product-traffic>p.product-note{font-size:13px;color:var(--room-quiet)}
+.product-traffic>.product-text-link{margin-top:12px}
+.product-open>.product-functions{margin-top:18px}
+.product-open .product-functions strong{font-size:22px}
+.product-help{display:flex;align-items:center;justify-content:space-between;gap:12px 32px;padding-block:20px;border-top:1px solid var(--room-line);border-bottom:1px solid var(--room-line)}
+.product-help>p{font:400 14px/1.6 var(--body);color:var(--room-soft)}
+.product-help>a{flex-shrink:0;color:var(--room-ink)}
 
 @media(max-width:1100px){
  .night-copy{grid-template-columns:minmax(0,1fr)}
  .night-aside{max-width:46ch;padding-bottom:0}
 }
-/* Upright screens: the film sits above the words, and each desk above its caption. */
 @media(max-width:760px),(max-aspect-ratio:1/1){
- .walk-caption h2{width:auto;max-width:none}
  .night-copy{grid-template-columns:minmax(0,1fr)}
  .night-aside{max-width:46ch;padding-bottom:0}
  .night-film{top:calc(var(--global-header-height,65px) + 18px);right:var(--gutter);width:min(76vw,420px)}
- .walk-scene{grid-template-columns:minmax(0,1fr);padding-block:20px 56px}
- .walk-film{order:-1;margin-inline:-9%}
- /* Static scenes keep their wide artwork inside the page on small screens. */
- .walk:not([data-walk-pinned]){overflow:clip}
- .walk[data-walk-pinned] .walk-scene{flex-direction:column;align-items:stretch;justify-content:center;padding-block:calc(var(--global-header-height,65px) + 4px) 86px}
- .walk[data-walk-pinned] .walk-caption{width:auto;transform:translate3d(calc(var(--walk-off,0)*22vw),0,0)}
- .walk[data-walk-pinned] .walk-film{position:relative;top:auto;right:auto;flex:none;align-self:center;width:min(118%,58vh);width:min(118%,58svh);margin:0 0 6px;transform:translate3d(calc(var(--walk-off,0)*-10vw),0,0)}
 }
 @media(max-width:760px){
  .night{min-height:max(88svh,660px)}
  .night h1{font-size:clamp(44px,13.6vw,64px);line-height:.93}
  .night-copy{gap:18px;padding-bottom:30px}
  .night-aside p{font-size:15px;line-height:1.5}
- .walk-caption h2{width:auto;max-width:none;font-size:clamp(28px,8.4vw,38px)}
- .walk-text{max-width:none;margin-top:12px;font-size:15px;line-height:1.5}
- .walk-link{min-height:40px}
- .walk[data-walk-pinned]{--walk-step:88vh}
- .walk[data-walk-pinned] .walk-rail:not([hidden]){bottom:6px;grid-template-columns:.8fr 1fr 1.1fr 1.2fr .5fr;column-gap:8px}
- .walk[data-walk-pinned] .walk-film{width:min(112%,50vh);width:min(112%,50svh);margin-bottom:0}
- .walk[data-walk-pinned] .walk-scene{padding-bottom:80px}
- .walk-rail button{font-size:12px}
+ .products-heading{padding-bottom:22px;gap:16px}
+ .products-heading h2{font-size:20px}
+ .products-heading>a{font-size:13px;gap:10px}
+ .product-platform,.product-others{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:30px 34px}
+ .product-intro>p:not(.product-audience){max-width:34ch;margin-top:14px;font-size:16px}
+ .product-intro>.product-text-link{margin-top:10px}
+ .product-functions strong{font-size:22px}
+ .product-functions strong+span{font-size:14px;line-height:1.6}
+ .product-functions a{gap:20px;padding-block:20px}
+ .product-open{padding-top:30px;border-top:1px solid var(--room-line)}
+ .product-help{align-items:flex-start;flex-direction:column;gap:6px;padding-block:20px}
 }
-@media(max-width:350px){.walk-rail button{font-size:11px}}
-/* Keep the workplace and its link together on short phones. */
-@media(max-width:760px) and (max-height:720px){
- .walk[data-walk-pinned] .walk-film{width:min(112%,44vh);width:min(112%,44svh)}
- .walk[data-walk-pinned] .walk-link{margin-top:10px}
-}
-@media(max-width:760px) and (max-height:660px){.walk[data-walk-pinned] .walk-film{width:min(108%,37vh);width:min(108%,37svh)}}
 
 /* ---------- Why ---------- */
 .story-principle{padding-block:clamp(110px,16vw,230px) clamp(96px,13vw,190px)}
@@ -127,32 +116,6 @@ html:has(.landing-page){background:#0c0e11}
 .story-principle-copy p{font:400 clamp(18px,1.55vw,22px)/1.6 var(--body);color:var(--room-soft)}
 .story-principle-copy .landing-text-link{margin-top:30px;font-size:14px}
 
-/* ---------- Two areas ---------- */
-.story-doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(20px,2.8vw,44px)}
-.story-door{position:relative;display:flex;flex-direction:column;align-items:flex-start}
-.story-door-media{position:relative;align-self:stretch;aspect-ratio:1/1;overflow:hidden;border-radius:4px;background:#15171b}
-.story-door-media :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .7s ease}
-.story-door:first-child .story-door-media :is(img,video){object-position:50% 78%}
-.story-door-media video{opacity:0}
-.story-door-media video[data-playing]{opacity:1}
-.story-door:hover .story-door-media :is(img,video){transform:scale(1.03)}
-.story-door-audience{margin-top:24px;font:400 14px/1.5 var(--body);color:var(--room-quiet)}
-.story-door h3{margin-top:10px;font:500 clamp(26px,2.9vw,42px)/1.08 var(--display);letter-spacing:-.045em;color:#fff}
-.story-door-text{max-width:46ch;margin-top:16px;font:400 16px/1.65 var(--body);color:var(--room-soft)}
-.story-door-links{display:flex;flex-wrap:wrap;gap:4px 30px;margin-top:20px}
-.story-door-links a{position:relative;z-index:1;display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--room-soft);text-decoration:none;font:450 14px/1.4 var(--body)}
-.story-door-links a:hover{color:#fff}
-.story-door-links a span{font-size:18px}
-.story-door-links .story-door-main{z-index:0;position:static;color:#f8f9fa;border-bottom:1px solid rgba(255,255,255,.3)}
-.story-door-links .story-door-main::after{content:'';position:absolute;inset:0}
-.story-door:hover .story-door-main{border-bottom-color:#fff}
-.story-more{grid-column:1/-1;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(20px,2.8vw,44px);margin:clamp(56px,7vw,96px) 0 0;padding:0;border-top:1px solid var(--room-line)}
-.story-more a{display:block;height:100%;padding-top:22px;color:var(--room-quiet);text-decoration:none;font:400 14px/1.6 var(--body)}
-.story-more strong{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px;font:500 clamp(17px,1.5vw,20px)/1.3 var(--display);letter-spacing:-.025em;color:#f8f9fa}
-.story-more strong span{font-size:18px;font-weight:400;color:var(--room-quiet);transition:translate .25s ease,color .2s}
-.story-more a:hover{color:var(--room-soft)}
-.story-more a:hover strong span{translate:2px -2px;color:#fff}
-
 /* ---------- Contact ---------- */
 .story-dawn{position:relative;display:flex;flex-direction:column;margin-top:clamp(72px,10vw,144px);border-top:1px solid var(--room-line);color:#fff}
 .story-dawn-copy{padding-block:clamp(64px,9vw,128px)}
@@ -163,15 +126,8 @@ html:has(.landing-page){background:#0c0e11}
 .story-dawn-foot a:hover{color:#fff}
 .landing-page .site-footer{position:relative}
 
-@media(max-width:760px){
- .story-principle-copy{margin-left:0}
- .story-doors{grid-template-columns:1fr;gap:64px 0}
- .story-more{grid-template-columns:1fr;margin-top:8px}
- .story-more a{padding-block:20px;border-bottom:1px solid var(--room-line)}
- .story-more li:last-child a{border-bottom:0}
-}
+@media(max-width:760px){.story-principle-copy{margin-left:0}}
 @media(prefers-reduced-motion:reduce){
- .story-door-media :is(img,video),.story-word,.walk-rail button,.night-film video,.walk-film video{transition:none}
- .story-door:hover .story-door-media :is(img,video){transform:none}
- .story-more strong span{transition:none}
+ .story-word,.night-film video,.product-arrow,.product-intro h3 span,.product-traffic h3 span{transition:none}
+ .products a:hover span{transform:none}
 }

@@ -87,3 +87,13 @@
 .film-page .dev-any-hero-grid>figure{width:min(100%,760px);margin-inline:auto}
 /* The traffic page's own veil was made for a daylight picture; the night picture needs less of it. */
 .bp-road::before{background:linear-gradient(90deg,rgba(11,20,27,.82) 0%,rgba(11,20,27,.6) 34%,rgba(11,20,27,.18) 72%,rgba(11,20,27,0) 100%),linear-gradient(0deg,rgba(11,20,27,.6) 0%,rgba(11,20,27,0) 28%)}
+
+/* The approved grey room: broad light, plain floor, no spotlight footage. */
+.gray-room-page{--room:#303238;--room-soft:#d1d3d7;--room-quiet:#b3b7bf}
+.gray-room-page .global-header:not([data-solid]){--global-nav-paper:var(--room);background:var(--room)}
+.gray-room-page .film-hero-media{mix-blend-mode:normal}
+
+.gray-room-page .film-hero--row .film-hero-media{right:0;width:min(64vw,1100px);aspect-ratio:16/9}
+@media(max-width:760px),(max-aspect-ratio:1/1){
+ .gray-room-page .film-hero--row .film-hero-media{right:auto;width:calc(100% + 2 * var(--gutter));margin:0 calc(-1 * var(--gutter)) 8px;align-self:center}
+}

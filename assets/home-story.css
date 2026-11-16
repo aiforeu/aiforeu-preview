@@ -107,6 +107,8 @@ html:has(.landing-page){background:#0c0e11}
  .night::after{background:linear-gradient(rgba(12,14,17,.42) 0%,rgba(12,14,17,0) 13%,rgba(12,14,17,0) 31%,var(--room) 59%)}
  .walk-scene{grid-template-columns:minmax(0,1fr);padding-block:20px 56px}
  .walk-film{order:-1;margin-inline:-9%}
+ /* Static scenes keep their wide artwork inside the page on small screens. */
+ .walk:not([data-walk-pinned]){overflow:clip}
  .walk[data-walk-pinned] .walk-scene{flex-direction:column;align-items:stretch;justify-content:center;padding-block:calc(var(--global-header-height,65px) + 4px) 86px}
  .walk[data-walk-pinned] .walk-caption{width:auto;transform:translate3d(calc(var(--walk-off,0)*22vw),0,0)}
  .walk[data-walk-pinned] .walk-film{position:relative;top:auto;right:auto;flex:none;align-self:center;width:min(118%,58vh);width:min(118%,58svh);margin:0 0 6px;transform:translate3d(calc(var(--walk-off,0)*-10vw),0,0)}

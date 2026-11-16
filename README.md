@@ -2,7 +2,10 @@
 
 Static website files for the AIFOREU design preview. The development repository and its history are kept separately.
 
-Preview: https://d0ublemm.github.io/aiforeu-preview/
+Shared organization preview: https://aiforeu.github.io/aiforeu-preview/
+
+The previous preview at https://d0ublemm.github.io/aiforeu-preview/ is synchronized
+to this repository's main branch.
 
 ## Homepage
 
@@ -13,7 +16,7 @@ planning, IVE). It states what the company stands for, opens its two areas,
 lists the further offers and ends with the aircraft leaving into the morning
 above the contact question. Texts come from the area pages; the example that
 runs along the first three workplaces is the scenario of
-`autonomous-workforce.html`. The other pages are unchanged.
+`autonomous-workforce.html`. The subpage openings are described below.
 
 - `index.html`, `assets/home-story.css`, `assets/home-story.js`: structure,
   styling and behaviour. The script pins the stage and moves the row of
@@ -82,5 +85,19 @@ are kept in `.higgsfield-local/`, which is not published.
   scripts and the `assets/gallery*.css` stylesheets) are still in the repository,
   but no page loads them.
 
-These changes were made in this preview repository. The development repository
-does not contain them yet; a publish from there would overwrite them.
+## Source synchronization
+
+On 16 November 2026, Michael R's film-story update (`d194c38`) was integrated
+back into the development templates and assets. The earlier preview (`55da84d`)
+already contained the latest local export (`d515722`); all 415 exported files
+matched before integration.
+
+`preview-version.json` identifies the integrated development revision. Rebuilding
+and exporting that source preserves the published pages, navigation, versioned
+assets and deferred scripts. The static workplace fallback also keeps its artwork
+inside narrow screens when motion or JavaScript is disabled.
+
+Before another export, fetch this repository and bring any direct preview edits
+back into the development source. Compare the export before pushing. The
+development history and unpublished source material remain separate from this
+public repository.

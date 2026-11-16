@@ -1,5 +1,5 @@
-/* AIFOREU homepage. One night from the first screen to the last:
-   the aircraft arrives in the dark, the page travels along the lit workplaces (one per offer), and the aircraft leaves into the morning.
+/* AIFOREU homepage. A small opening film accompanies the company message;
+   the page then travels along the lit workplaces and closes with a direct contact question.
    assets/home-story.js moves the row of workplaces sideways while the page scrolls; without it they simply follow one another. */
 html:has(.landing-page){background:#0c0e11}
 .landing-page{--room:#0c0e11;--room-ink:#f8f9fa;--room-soft:#b8bec6;--room-quiet:#8b929c;--room-line:rgba(255,255,255,.16);background:var(--room);color:var(--room-ink)}
@@ -17,14 +17,12 @@ html:has(.landing-page){background:#0c0e11}
 .landing-page .landing-text-link{color:#f8f9fa}
 
 /* ---------- Night: the film that opens the page ---------- */
-.night{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;min-height:100vh;min-height:100svh;overflow:hidden;overflow:clip;color:#fff}
+.night{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;min-height:min(88vh,880px);min-height:min(88svh,880px);overflow:hidden;overflow:clip;color:#fff}
 .js .night{margin-top:calc(var(--global-header-height,73px)*-1)}
-.night-film{position:absolute;inset:0;z-index:-2;background:#080c15;opacity:calc(1 - var(--night-out,0)*.7);translate:0 calc(var(--night-out,0)*7%);scale:calc(1 + var(--night-out,0)*.05)}
-.night-film :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% 38%}
+.night-film{position:absolute;top:calc(var(--global-header-height,73px) + 30px);right:max(var(--gutter),calc((100% - var(--content-width))/2 + var(--gutter)));width:min(44vw,560px);aspect-ratio:16/9;z-index:-1;opacity:calc(.65 - var(--night-out,0)*.45);filter:saturate(.55);-webkit-mask-image:radial-gradient(ellipse closest-side at 56% 44%,#000 18%,rgba(0,0,0,.84) 56%,transparent 100%);mask-image:radial-gradient(ellipse closest-side at 56% 44%,#000 18%,rgba(0,0,0,.84) 56%,transparent 100%)}
+.night-film :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .night-film video{opacity:0;transition:opacity 1.4s ease}
 .night-film video[data-playing]{opacity:1}
-/* Darker towards the words and down into the page colour, so the room below starts in the same night. */
-.night::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(12,14,17,.42) 0%,rgba(12,14,17,0) 17%,rgba(12,14,17,0) 44%,rgba(12,14,17,.5) 72%,var(--room) 100%)}
 .night-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,23rem);align-items:end;gap:28px clamp(32px,5vw,88px);width:100%;max-width:var(--content-width);margin-inline:auto;padding:calc(var(--global-header-height,73px) + 40px) var(--gutter) clamp(36px,7svh,80px);opacity:calc(1 - var(--night-out,0)*1.7)}
 .night h1{font:500 clamp(46px,min(9.2vw,17.5svh),158px)/.9 var(--display);letter-spacing:-.062em;color:#fff}
 .night h1>span{display:block;overflow:hidden;padding-block:.1em;margin-block:-.1em}
@@ -37,12 +35,12 @@ html:has(.landing-page){background:#0c0e11}
 .night-start span{font-size:17px}
 /* The one staged moment of the page: the night opens, then the line rises. */
 @media(prefers-reduced-motion:no-preference){
- .night-film{animation:night-open 2.6s cubic-bezier(.2,.7,.2,1) backwards}
+ .night-film{animation:night-open 1.4s ease backwards}
  .night h1>span>span{animation:night-rise 1.15s cubic-bezier(.16,1,.3,1) .3s backwards}
  .night h1>span+span>span{animation-delay:.42s}
  .night-aside{animation:night-settle 1s ease .95s backwards}
 }
-@keyframes night-open{from{opacity:0;scale:1.07}}
+@keyframes night-open{from{opacity:0}}
 @keyframes night-rise{from{transform:translateY(112%)}}
 @keyframes night-settle{from{opacity:0;transform:translateY(12px)}}
 
@@ -102,9 +100,7 @@ html:has(.landing-page){background:#0c0e11}
  .walk-caption h2{width:auto;max-width:none}
  .night-copy{grid-template-columns:minmax(0,1fr)}
  .night-aside{max-width:46ch;padding-bottom:0}
- .night-film{inset:0 0 41%}
- .night-film :is(img,video){object-position:80% 30%}
- .night::after{background:linear-gradient(rgba(12,14,17,.42) 0%,rgba(12,14,17,0) 13%,rgba(12,14,17,0) 31%,var(--room) 59%)}
+ .night-film{top:calc(var(--global-header-height,65px) + 18px);right:var(--gutter);width:min(76vw,420px)}
  .walk-scene{grid-template-columns:minmax(0,1fr);padding-block:20px 56px}
  .walk-film{order:-1;margin-inline:-9%}
  /* Static scenes keep their wide artwork inside the page on small screens. */
@@ -115,7 +111,7 @@ html:has(.landing-page){background:#0c0e11}
  .walk[data-walk-pinned] .walk-case-more{display:none}
 }
 @media(max-width:760px){
- .night{min-height:max(100svh,600px)}
+ .night{min-height:max(88svh,660px)}
  .night h1{font-size:clamp(44px,13.6vw,64px);line-height:.93}
  .night-copy{gap:18px;padding-bottom:30px}
  .night-aside p{font-size:15px;line-height:1.5}
@@ -156,8 +152,8 @@ html:has(.landing-page){background:#0c0e11}
 .story-door-media{position:relative;align-self:stretch;aspect-ratio:1/1;overflow:hidden;border-radius:4px;background:#15171b}
 .story-door-media :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .7s ease}
 .story-door:first-child .story-door-media :is(img,video){object-position:50% 78%}
-.story-door-media video,.story-dawn-media video{opacity:0}
-.story-door-media video[data-playing],.story-dawn-media video[data-playing]{opacity:1}
+.story-door-media video{opacity:0}
+.story-door-media video[data-playing]{opacity:1}
 .story-door:hover .story-door-media :is(img,video){transform:scale(1.03)}
 .story-door-audience{margin-top:24px;font:400 14px/1.5 var(--body);color:var(--room-quiet)}
 .story-door h3{margin-top:10px;font:500 clamp(26px,2.9vw,42px)/1.08 var(--display);letter-spacing:-.045em;color:#fff}
@@ -176,12 +172,9 @@ html:has(.landing-page){background:#0c0e11}
 .story-more a:hover{color:var(--room-soft)}
 .story-more a:hover strong span{translate:2px -2px;color:#fff}
 
-/* ---------- Morning ---------- */
-.story-dawn{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:min(100svh,1040px);margin-top:clamp(40px,6vw,90px);color:#fff}
-.story-dawn-media{position:absolute;inset:0;z-index:-2;background:#18233c}
-.story-dawn-media :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 50%;transition:opacity .9s ease}
-.story-dawn::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(var(--room) 0%,rgba(12,14,17,.55) 14%,rgba(12,14,17,0) 34%,rgba(20,27,40,0) 80%,var(--night) 100%)}
-.story-dawn-copy{padding-top:clamp(96px,13vw,190px)}
+/* ---------- Contact ---------- */
+.story-dawn{position:relative;display:flex;flex-direction:column;margin-top:clamp(72px,10vw,144px);border-top:1px solid var(--room-line);color:#fff}
+.story-dawn-copy{padding-block:clamp(64px,9vw,128px)}
 .story-dawn h2{font:500 clamp(40px,6.2vw,100px)/1 var(--display);letter-spacing:-.055em;color:#fff}
 .story-dawn .landing-button{margin-top:clamp(28px,3.6vw,46px)}
 .story-dawn-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-block:26px;font:400 13px/1.5 var(--body);color:#c9d2e0}
@@ -195,8 +188,6 @@ html:has(.landing-page){background:#0c0e11}
  .story-more{grid-template-columns:1fr;margin-top:8px}
  .story-more a{padding-block:20px;border-bottom:1px solid var(--room-line)}
  .story-more li:last-child a{border-bottom:0}
- .story-dawn{min-height:86svh}
- .story-dawn-media :is(img,video){object-position:68% 50%}
 }
 @media(prefers-reduced-motion:reduce){
  .story-door-media :is(img,video),.story-word,.walk-rail button,.night-film video,.walk-film video{transition:none}

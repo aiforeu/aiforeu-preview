@@ -9,12 +9,12 @@ to this repository's main branch.
 
 ## Homepage
 
-The homepage is one night from the first screen to the last. A film of the
-aircraft above the clouds opens the page. The page then travels along five lit
-workplaces, one per offer (voice agents, desktop automation, workflows, traffic
-planning, IVE). It states what the company stands for, opens its two areas,
-lists the further offers and ends with the aircraft leaving into the morning
-above the contact question. Texts come from the area pages; the example that
+A small, softly blended film accompanies the opening message at the upper
+right. It plays once and holds its final frame; it does not fill the screen.
+The page then travels along five lit workplaces, one per offer (voice agents,
+desktop automation, workflows, traffic planning, IVE). It states what the
+company stands for, opens its two areas, lists the further offers and ends
+with a quiet contact question. The aircraft appears only in the opening. Texts come from the area pages; the example that
 runs along the first three workplaces is the scenario of
 `autonomous-workforce.html`. The subpage openings are described below.
 
@@ -53,8 +53,8 @@ its product name is going to change.
 
 Every subpage opens in the same night as the homepage: a dark stage with the
 page's heading and, beside it, a filmed scene from the same studio (a desk, a
-row of desks), or a film that fills the stage (contact: the morning flight,
-company: the night flight). `assets/page-film.css` styles the stage,
+row of desks). The company page shows the three connected workplaces; contact
+shows the notebook desk as a still picture. `assets/page-film.css` styles the stage,
 `assets/page-film.js` plays its clip while it is on screen and gives the header
 its light bar back once the stage has passed. Below the stage each page goes on
 in its own light layout. `verkehrsai.html` keeps its own opening and shows the

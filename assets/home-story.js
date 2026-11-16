@@ -1,4 +1,4 @@
-/* AIFOREU homepage: the night film, the walk along the four workplaces, the statement that lights up, the moving pictures.
+/* AIFOREU homepage: a small opening film, the walk along five workplaces, the statement that lights up, the moving pictures.
    Without this script the workplaces follow one another down the page, the heading is fully lit and the pictures stay still. */
 (() => {
   'use strict';
@@ -9,7 +9,7 @@
   const moving = !reduced.matches && !navigator.connection?.saveData;   // clips play at all
   const fetchClip = clip => { if (moving && clip && !clip.src) { clip.preload = 'auto'; clip.src = clip.dataset.src; } };
 
-  // 1 · Night. The film sinks back and the words give way as the page moves on.
+  // 1 · The small opening film and the words give way as the page moves on.
   const night = document.querySelector('[data-night]');
   let nightFrame = 0, nightEnd = 0;
   const paintNight = () => {
@@ -184,6 +184,7 @@
     const observer = new IntersectionObserver(entries => {
       for (const { target, isIntersecting } of entries) {
         if (!isIntersecting) { target.pause(); continue; }
+        if (target.ended && !target.loop) continue;
         fetchClip(target);
         target.play().catch(() => {});
       }

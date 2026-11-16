@@ -14,9 +14,9 @@ right. It plays once and holds its final frame; it does not fill the screen.
 The page then travels along five lit workplaces, one per offer (voice agents,
 desktop automation, workflows, traffic planning, IVE). It states what the
 company stands for, opens its two areas, lists the further offers and ends
-with a quiet contact question. The aircraft appears only in the opening. Texts come from the area pages; the example that
-runs along the first three workplaces is the scenario of
-`autonomous-workforce.html`. The subpage openings are described below.
+with a quiet contact question. The aircraft appears only in the opening. Each workplace has its name, one
+short description and a direct link. Detailed scenarios belong to the area
+pages. The subpage openings are described below.
 
 - `index.html`, `assets/home-story.css`, `assets/home-story.js`: structure,
   styling and behaviour. The script pins the stage and moves the row of
@@ -31,12 +31,8 @@ runs along the first three workplaces is the scenario of
   down the page as still pictures. On upright screens each desk sits above its
   text.
 - `assets/aiforeu-home/`: all pictures and clips of the homepage and the subpages.
-- The rail under the workplaces also names how the five belong together: the
-  first three are the platform, the traffic software runs on it, and IVE is what
-  it is all built with. The link between IVE and the platform exists in code
-  (IVE extension for agent systems, programs published as tools); that the
-  traffic project uses the platform and that everything was built with IVE are
-  statements of the founders.
+- The rail under the workplaces links directly to the five areas, without an
+  additional layer of explanatory labels.
 
 ## Navigation
 

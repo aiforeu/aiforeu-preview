@@ -3,7 +3,7 @@
  const form=document.querySelector('[data-project-form]');if(!form)return;
  const topic=form.querySelector('#project-topic'), task=form.querySelector('#project-task'), draft=form.querySelector('[data-project-draft]'), mail=form.querySelector('[data-project-mail]'), copy=form.querySelector('[data-project-copy]'), text=form.querySelector('[data-project-text]'), status=form.querySelector('[data-project-status]');
  if(!topic||!task||!draft||!mail||!copy||!text||!status)return;
- const params=new URLSearchParams(location.search),requested=params.get('thema');
+ const params=new URLSearchParams(location.search),requested=params.get('thema')==='VerkehrsOS'?'VerkehrsAI':params.get('thema');
  if(requested){const option=[...topic.options].find(o=>o.value.toLowerCase().startsWith(requested.toLowerCase()));if(option)topic.value=option.value;}
  const integration=params.get('integration')?.trim().replace(/[\r\n]/g,' ').slice(0,80);
  if(integration&&!task.value)task.value=`Ich möchte ${integration} mit Agentario verbinden. Unser gewünschter Ablauf: `;

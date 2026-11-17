@@ -8,7 +8,7 @@ import { createRearHangar } from './rear-hangar.js?v=gray-room-1';
 
 const mounted=new WeakMap();
 const content={
-  overview:{title:'Inside AIFOREU',copy:'Wählen Sie einen der vier Arbeitsplätze.',href:'agentario/',action:'Agentario entdecken'},
+  overview:{title:'Unsere Arbeitsbereiche.',copy:'Wählen Sie einen Tisch.',href:'agentario/',action:'Agentario entdecken'},
   voice:{title:'Voice',copy:'Agentario nimmt Anrufe an und führt die nächsten Schritte aus.',href:'agentario/voice/',action:'Voice entdecken'},
   desktop:{title:'Desktop',copy:'Agentario arbeitet direkt in Ihrer Software.',href:'agentario/desktop/',action:'Desktop entdecken'},
   workflows:{title:'Workflows',copy:'Agentario verbindet Ihre Programme zu einem gemeinsamen Ablauf.',href:'agentario/workflows/',action:'Workflows entdecken'},
@@ -43,7 +43,7 @@ export function mountWorld(host,{selected='overview',capture=false,plainRoom=fal
     renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     env=environment(renderer);exhibits=createExhibits();
   }catch{exhibits?.dispose();env?.dispose();renderer?.dispose();host.setAttribute('data-gallery-static','');return null;}
-  const scene=new THREE.Scene();scene.background=new THREE.Color('#0c0e11');scene.fog=new THREE.Fog('#0c0e11',21,65);scene.environment=env.texture;scene.environmentIntensity=.65;scene.add(exhibits.root);
+  const scene=new THREE.Scene(),roomColor=plainRoom?'#303238':'#0c0e11';scene.background=new THREE.Color(roomColor);scene.fog=new THREE.Fog(roomColor,21,65);scene.environment=env.texture;scene.environmentIntensity=.65;scene.add(exhibits.root);
   const hangar=createRearHangar();scene.add(hangar.root);
   const shutter=capture?document.createElement('div'):null;if(shutter){shutter.style.cssText='position:absolute;inset:0;background:#08090b;pointer-events:none;z-index:8;opacity:0';frame.append(shutter);}
   const fog=scene.fog,camera=new THREE.PerspectiveCamera(35,1,.08,1200);

@@ -88,12 +88,41 @@
 /* The traffic page's own veil was made for a daylight picture; the night picture needs less of it. */
 .bp-road::before{background:linear-gradient(90deg,rgba(11,20,27,.82) 0%,rgba(11,20,27,.6) 34%,rgba(11,20,27,.18) 72%,rgba(11,20,27,0) 100%),linear-gradient(0deg,rgba(11,20,27,.6) 0%,rgba(11,20,27,0) 28%)}
 
-/* The approved grey room: broad light, plain floor, no spotlight footage. */
+/* Grey office scenes have their own space beside or below the text. */
 .gray-room-page{--room:#303238;--room-soft:#d1d3d7;--room-quiet:#b3b7bf}
 .gray-room-page .global-header:not([data-solid]){--global-nav-paper:var(--room);background:var(--room)}
-.gray-room-page .film-hero-media{mix-blend-mode:normal}
-
-.gray-room-page .film-hero--row .film-hero-media{right:0;width:min(64vw,1100px);aspect-ratio:16/9}
-@media(max-width:760px),(max-aspect-ratio:1/1){
- .gray-room-page .film-hero--row .film-hero-media{right:auto;width:calc(100% + 2 * var(--gutter));margin:0 calc(-1 * var(--gutter)) 8px;align-self:center}
+.gray-room-page .film-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);min-height:560px;padding-block:64px}
+.gray-room-page .film-hero-copy{grid-area:1 / 1;width:100%;max-width:580px}
+.gray-room-page .film-hero h1{width:auto;max-width:100%;font-size:clamp(38px,4.2vw,64px);line-height:1.08;letter-spacing:-.045em}
+.gray-room-page .film-hero-media{position:relative;grid-area:1 / 2;top:auto;right:auto;width:100%;aspect-ratio:4/3;transform:none;mix-blend-mode:normal;margin:0}
+.gray-room-page .film-hero--row{display:flex;flex-direction:column;align-items:stretch;gap:12px;min-height:0;padding-block:72px 28px}
+.gray-room-page .film-hero--row .film-hero-copy{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:28px 64px;width:100%;max-width:none}
+.gray-room-page .film-hero--row .film-hero-copy h1{grid-area:1 / 1;font-size:clamp(38px,4.1vw,64px)}
+.gray-room-page .film-hero--row .film-hero-lead{grid-area:1 / 2;max-width:38ch;margin:0;font-size:17px;line-height:1.65}
+.gray-room-page .film-hero--row .film-hero-copy:has(.film-hero-back) :is(h1,.film-hero-lead){grid-row:2}
+.gray-room-page .film-hero--row .film-hero-back{grid-area:1 / 1 / auto / -1;margin:0;min-height:24px}
+.gray-room-page .film-hero--row .film-hero-actions{grid-column:2;margin-top:0}
+.gray-room-page .film-hero--row .film-hero-media{order:2;align-self:center;width:100vw;aspect-ratio:3.6/1;right:auto;margin:12px calc((100% - 100vw)/2) 0;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 85%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 85%,transparent)}
+.gray-room-page .film-hero--row .film-hero-media img{object-fit:cover;object-position:50% 57%}
+.gray-room-page .company-team{padding-top:72px}
+.page-traffic.gray-room-page main .film-hero-lead{margin-top:24px}
+.page-traffic.gray-room-page main .film-hero-meta{margin-top:22px}
+.page-traffic.gray-room-page main .film-hero-back{margin-bottom:20px}
+@media(max-width:900px){
+ .gray-room-page .film-hero--row .film-hero-copy{gap:24px 36px}
+ .gray-room-page .film-hero--row .film-hero-lead{font-size:16px}
+}
+@media(max-width:760px){
+ .gray-room-page .film-hero{display:flex;flex-direction:column;align-items:stretch;gap:8px;min-height:0;padding-block:40px 44px}
+ .gray-room-page .film-hero-copy{order:0;width:100%;max-width:none}
+ .gray-room-page .film-hero-media{order:1;align-self:center;width:100%;max-width:520px;margin:12px 0 0}
+ .gray-room-page .film-hero h1{font-size:clamp(36px,9.4vw,52px)}
+ .gray-room-page .film-hero--row{gap:20px;padding-bottom:28px}
+ .gray-room-page .film-hero--row .film-hero-copy{display:block}
+ .gray-room-page .film-hero--row .film-hero-copy h1{font-size:clamp(36px,9.4vw,52px)}
+ .gray-room-page .film-hero--row .film-hero-lead{margin-top:24px}
+ .gray-room-page .film-hero--row .film-hero-actions{margin-top:24px}
+ .gray-room-page .film-hero--row .film-hero-media{width:calc(100% + 2 * var(--gutter));max-width:none;margin:0 calc(-1 * var(--gutter));aspect-ratio:1.7/1}
+ .gray-room-page .film-hero--row .film-hero-media img{object-fit:contain}
+ .gray-room-page .company-team{padding-top:48px}
 }

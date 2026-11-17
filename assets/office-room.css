@@ -1,11 +1,7 @@
 /* The original four desks, in their shared room. Regular page scrolling. */
-html:has(.office-home){background:#303238}
-.office-home{--room:#303238;--room-soft:#d1d3d7;--room-quiet:#b7bbc3;background:var(--room)}
-.office-home .global-header:not([data-hero-ended]){--global-nav-paper:#303238;background:#303238}
 .office-home .night{min-height:600px;min-height:min(76svh,740px)}
 .office-home .night h1{font-size:clamp(52px,7.3vw,112px);line-height:.98}
 .office-home .night-copy{opacity:1;padding-bottom:64px}
-.office-home .night-film{mix-blend-mode:lighten;opacity:.62}
 .office-room{background:#303238;color:#fff;scroll-margin-top:var(--global-header-height,73px);border-block:1px solid #ffffff1a}
 .office-room .world-experience{height:clamp(560px,48vw,720px);background:#303238;max-width:1800px;margin-inline:auto}
 .office-room .world-stage{position:absolute;inset:0;background:#303238}
@@ -15,20 +11,18 @@ html:has(.office-home){background:#303238}
 .office-copy h2{font:500 clamp(32px,3.4vw,52px)/1.08 var(--display);letter-spacing:-.045em;color:#fff;margin:0}
 .office-copy p{font:400 16px/1.6 var(--body);color:#d1d3d7;margin:20px 0;max-width:28ch}
 .office-link{pointer-events:auto;display:inline-flex;align-items:center;gap:20px;min-height:44px;border-bottom:1px solid #ffffff60;color:#fff;text-decoration:none;font-size:14px}
-.office-room:not([data-gallery-view]) .office-copy,.office-room[data-gallery-view="overview"] .office-copy{top:38px;transform:none;width:auto;max-width:none}
-.office-room:not([data-gallery-view]) .office-copy h2,.office-room[data-gallery-view="overview"] .office-copy h2{font-size:clamp(30px,3vw,44px)}
-.office-room:not([data-gallery-view]) .office-family,.office-room[data-gallery-view="overview"] .office-family{display:none}
-.office-room:not([data-gallery-view]) .office-copy p,.office-room[data-gallery-view="overview"] .office-copy p{margin:10px 0 0;font-size:14px;max-width:none}
 .office-controls{display:none;position:absolute;z-index:3;left:var(--hero-edge);right:var(--hero-edge);bottom:30px;justify-content:center;gap:8px 30px;flex-wrap:wrap}
 .office-room:has([data-world-ready="true"]) .office-controls{display:flex}
 .office-controls button{padding:10px 0;min-height:44px;border:0;border-bottom:1px solid transparent;background:none;color:#c5c8ce;cursor:pointer;font:400 14px/1.4 var(--body)}
 .office-controls button:hover,.office-controls button[aria-pressed="true"]{color:#fff;border-bottom-color:#fff}
-.office-sequence{display:none!important}
+.office-sequence{position:absolute;z-index:3;left:var(--hero-edge);right:var(--hero-edge);bottom:30px;display:flex;justify-content:space-between;pointer-events:none}
+.office-sequence button{pointer-events:auto;min-height:44px;padding:10px 0;border:0;background:none;color:#fff;font:400 14px/1.4 var(--body);cursor:pointer}
+.office-sequence button:disabled{opacity:.35;cursor:default}
 .office-credit{position:absolute;right:var(--hero-edge);bottom:98px;z-index:2;max-width:42ch;color:#b9bdc5;font:400 10px/1.5 var(--body)}
 .office-credit a{color:inherit}
 .office-room[data-gallery-view="overview"] .office-credit{display:none}
 .office-fallback{position:absolute;inset:0}
-.office-fallback img{width:100%;height:100%;object-fit:cover}
+.office-fallback img{position:absolute;right:0;top:0;width:70%;height:100%;object-fit:contain}
 .office-fallback-links{position:absolute;z-index:3;bottom:26px;left:var(--hero-edge);right:var(--hero-edge);display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:14px}
 .office-fallback-links a{display:flex;align-items:center;min-height:44px;text-decoration:none}
 .office-room:has([data-world-ready="true"]) .office-fallback-links{display:none}
@@ -40,14 +34,17 @@ html:has(.office-home){background:#303238}
  .office-home .night-copy{padding-bottom:36px}
  .office-home .night h1{font-size:clamp(44px,13vw,68px)}
  .office-room .world-experience{height:660px}
- .office-copy,.office-room:not([data-gallery-view]) .office-copy,.office-room[data-gallery-view="overview"] .office-copy{top:28px;left:var(--gutter);right:var(--gutter);width:auto;max-width:none;transform:none}
+ .office-copy{top:28px;left:var(--gutter);right:var(--gutter);width:auto;max-width:none;transform:none}
  .office-family{font-size:12px;margin-bottom:10px}
  .office-copy h2{font-size:34px}
  .office-copy p{font-size:14px;margin:12px 0 6px;max-width:36ch}
  .office-link{font-size:13px}
- .office-controls{bottom:18px;gap:0 22px}
+ .office-controls{bottom:60px;gap:0 22px}
  .office-controls button{font-size:13px}
- .office-credit{left:var(--gutter);right:var(--gutter);bottom:118px;font-size:9px;max-width:none}
+ .office-sequence{bottom:10px}
+ .office-sequence button{font-size:13px}
+ .office-credit{left:var(--gutter);right:var(--gutter);bottom:114px;font-size:9px;max-width:none}
+ .office-fallback img{top:31%;width:100%;height:57%}
  .office-home .products{padding-top:42px}
 }
 @media(prefers-reduced-motion:reduce){.office-home .night-film{animation:none}}

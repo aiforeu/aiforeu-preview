@@ -29,6 +29,7 @@ export function mountWorld(host,{selected='overview',capture=false,plainRoom=fal
   const fallback=host.querySelector('[data-world-fallback]'),copy=host.querySelector('[data-gallery-copy]'),nav=host.querySelector('[data-gallery-nav]');
   const previous=host.querySelector('[data-gallery-previous]'),next=host.querySelector('[data-gallery-next]'),credit=host.querySelector('[data-gallery-credit]');
   const wordmark=host.querySelector('[data-gallery-wordmark]');
+  const singleDesk=host.hasAttribute('data-office-single');
   let resolveReady;const whenReady=new Promise(resolve=>{resolveReady=resolve;});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)'),abort=new AbortController();
   const on=(target,event,fn,options={})=>target?.addEventListener(event,fn,{...options,signal:abort.signal});
@@ -64,8 +65,9 @@ export function mountWorld(host,{selected='overview',capture=false,plainRoom=fal
       const link=host.querySelector('[data-gallery-link]');link.href=c.href;link.firstChild.textContent=c.action+' ';
       host.querySelector('[data-gallery-family]').textContent=view==='overview'?'AIFOREU':view==='traffic'?'EU-gefördert':'Agentario';
       link.hidden=view==='overview';
-      previous.hidden=false;previous.firstChild.textContent=view==='overview'?'↺ Intro':'← Alle Tische';
+      previous.hidden=false;previous.firstChild.textContent=singleDesk?(index>0?'← '+content[AREAS[index-1]].title:'← Zurück'):view==='overview'?'↺ Intro':'← Alle Tische';
       next.firstChild.textContent=index<3?content[AREAS[index+1]].title+' →':'Weiter →';
+      previous.disabled=singleDesk&&index<=0;next.disabled=singleDesk&&index>=3;
       credit.hidden=false;
       host.querySelectorAll('[data-cabin-select]').forEach(button=>{button.setAttribute('aria-pressed',String(button.dataset.cabinSelect===view));});
       if(previous.hidden&&document.activeElement===previous)next.focus({preventScroll:true});
@@ -188,8 +190,8 @@ export function mountWorld(host,{selected='overview',capture=false,plainRoom=fal
     if(animate&&!reduced.matches){transition={from:wasOverview&&!overview?p:progress,to:p,cameraFrom,fromStudio:studioBlend,toStudio,enter:wasOverview&&!overview,leave:!wasOverview&&overview,anchor:overview?(pose?.centre||0):sampleGallery(clamp((p-INTRO.galleryStart)/(1-INTRO.galleryStart))).centre,elapsed:0,last:null,duration:changingOverview?1600:900};schedule();return;}
     transition=null;studioBlend=toStudio;progress=p;view=area;host.removeAttribute('data-gallery-view');draw();
   }
-  on(previous,'click',()=>{if(view==='overview')host.dispatchEvent(new CustomEvent('gallery:replay'));else select('overview',{animate:true});});
-  on(next,'click',()=>{const index=AREAS.indexOf(view);if(index<3)select(AREAS[index+1],{animate:true});else document.querySelector('#wege')?.scrollIntoView({behavior:'smooth',block:'start'});});
+  on(previous,'click',()=>{if(singleDesk){const index=AREAS.indexOf(view);if(index>0)select(AREAS[index-1],{animate:true});}else if(view==='overview')host.dispatchEvent(new CustomEvent('gallery:replay'));else select('overview',{animate:true});});
+  on(next,'click',()=>{const index=AREAS.indexOf(view);if(index<3)select(AREAS[index+1],{animate:true});else if(!singleDesk)document.querySelector('#wege')?.scrollIntoView({behavior:'smooth',block:'start'});});
   host.querySelectorAll('[data-cabin-select]').forEach(button=>on(button,'click',()=>select(button.dataset.cabinSelect,{animate:true})));
   const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();let pressed=null;
   function deskAt(event){

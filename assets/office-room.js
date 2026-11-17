@@ -2,13 +2,13 @@
 (() => {
  const host=document.querySelector('.office-room[data-world]');
  if(!host)return;
- const moduleURL=new URL('./aiforeu-gallery/gallery.js?v=office-20261117',document.currentScript.src);
+ const moduleURL=new URL('./aiforeu-gallery/gallery.js?v=office-single-20261117',document.currentScript.src);
  let started=false;
  const mount=async()=>{
   if(started)return;started=true;
   try{
    const {mountWorld}=await import(moduleURL.href);
-   const room=mountWorld(host,{plainRoom:true});
+   const room=mountWorld(host,{plainRoom:true,selected:'voice'});
    if(!room||!await room.ready)host.setAttribute('data-gallery-static','');
   }catch{host.setAttribute('data-gallery-static','');}
  };
